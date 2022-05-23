@@ -1,0 +1,17 @@
+version: 2
+
+sources:
+  - name: emissions_factors
+    database: infinitelambda_emissions_data
+    schema: emissions_factors
+    tables:
+      - name: mobile_combustion
+      - name: purchased_electricity_country_level
+      - name: purchased_electricity_regional_location_based
+      - name: purchased_electricity_regional_market_based
+      - name: purchased_electricity_uk_national_generation_mix
+      - name: purchased_electricity_uk_regional_carbon_intensity
+      - name: stationary_combustion
+      - name: transport_and_travel
+  
+  

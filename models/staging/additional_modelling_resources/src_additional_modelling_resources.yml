@@ -1,0 +1,11 @@
+version: 2
+
+sources:
+  - name: additional_modelling_resources
+    database: infinitelambda_emissions_data
+    schema: additional_modelling_resources
+    tables:
+      - name: carbon_intensity_regions_mapped
+      - name: hourly_usage_factors
+      - name: us_commercial_buildings_demand
+      - name: machinery_consumption

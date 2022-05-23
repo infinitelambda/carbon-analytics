@@ -1,0 +1,61 @@
+version: 2
+
+models:
+  - name: stg_additional_modelling_resources__carbon_intensity_regions_mapped
+    description: '{{ doc("stg_additional_modelling_resources__carbon_intensity_regions_mapped_doc") }}'
+    columns:
+      - name: sk_carbon_intensity_regions_mapped
+        description: Unique identifier.
+      - name: post_code
+        description: The first part of a British post code.
+      - name: carbon_intensity_region
+        description: Carbon intensity region as per their website (see model docs).
+  - name: stg_additional_modelling_resources__hourly_usage_factors
+    description: '{{ doc("stg_additional_modelling_resources__hourly_usage_factors_doc") }}'
+    columns:
+      - name: sk_hourly_usage_factors
+        description: Unique identifier.
+      - name: premise_type
+        description: Type of premise.
+      - name: hour
+        description: Hour of the day (0-23).
+      - name: factor
+        description: Electricity demand factor (see model docs).
+  - name: stg_additional_modelling_resources__machinery_consumption
+    description: '{{ doc("stg_additional_modelling_resources__machinery_consumption_doc") }}'
+    columns:
+      - name: sk_machinery_consumption
+        description: Unique identifier.
+      - name: machinery_type
+        description: Type of operational machinery.
+      - name: fuel_type
+        description: Type of fuel used by the machinery.
+      - name: size
+        description: Size of the machinery in kW.
+      - name: load
+        description: Fuel load of the machinery.
+      - name: consumption_unit
+        description: Units in which the consumed fuel is measured.
+      - name: consumption_volume
+        description: Volume of consumed fuel.
+  - name: stg_additional_modelling_resources__us_commercial_buildings_demand
+    description: '{{ doc("stg_additional_modelling_resources__us_commercial_buildings_demand_doc") }}'
+    columns:
+      - name: sk_us_commercial_buildings_demand
+        description: Unique identifier.
+      - name: type
+        description: General type of commercial building.
+      - name: type_specific
+        description: Specific type of commercial building.
+      - name: size_constraint_present
+        description: Whether a size constraint is used to distinguish among types.
+      - name: size_constraint_lower_limit
+        description: Lower limit of size constraint.
+      - name: size_constraint_upper_limit
+        description: Upper limit of size constraint.
+      - name: annual_kwh_demand
+        description: Annual electricity demand per square foot in kWh.
+      - name: daily_kwh_demand
+        description: Daily electricity demand per square foot in kWh (TO BE REMOVED).
+      - name: annual_heating_demand_btu
+        description: Annual heating demand per square foot in BTU.

@@ -1,0 +1,62 @@
+name: 'sus_an'
+version: '1.0.0'
+config-version: 2
+
+profile: 'dbt_susan' # configuration required (your profile to connect dbt to your data warehouse)
+
+model-paths: ["models"]
+analysis-paths: ["analysis"]
+test-paths: ["tests"]
+seed-paths: ["seeds"]
+macro-paths: ["macros"]
+snapshot-paths: ["snapshots"]
+
+target-path: "target"  
+clean-targets:         
+    - "target"
+    - "dbt_modules"
+
+# These settings can be overridden in the individual model files
+# using the `{{ config(...) }}` macro.
+models:
+  sus_an:
+      staging:
+          materialized: view
+      mart:
+          materialized: table
+          +schema: mart
+
+vars:
+  
+  operational_data_source: sample # modify this value to 'customer' to use the 'customer._' sources if you have defined any below
+
+  sample.company_daily_electricity_usage : infinitelambda_emissions_data.sample_business_data.company_daily_electricity_usage
+  sample.employee_business_expenses : infinitelambda_emissions_data.sample_business_data.employee_business_expenses
+  sample.employee_business_vehicles : infinitelambda_emissions_data.sample_business_data.employee_business_vehicles
+  sample.employee_monthly_mileage : infinitelambda_emissions_data.sample_business_data.employee_monthly_mileage
+  sample.employee_work_from_home_days : infinitelambda_emissions_data.sample_business_data.employee_work_from_home_days
+  sample.operational_vehicles_company_1 : infinitelambda_emissions_data.sample_business_data.operational_vehicles_company_1
+  sample.operational_vehicles_company_2 : infinitelambda_emissions_data.sample_business_data.operational_vehicles_company_2
+  sample.work_from_home_electricity_usage : infinitelambda_emissions_data.sample_business_data.work_from_home_electricity_usage
+  sample.company_business_travels : infinitelambda_emissions_data.sample_business_data.company_business_travels
+  sample.company_locations : infinitelambda_emissions_data.sample_business_data.company_locations
+  sample.factory_machinery_usage : infinitelambda_emissions_data.sample_business_data.factory_machinery_usage
+  sample.factory_machinery : infinitelambda_emissions_data.sample_business_data.factory_machinery
+
+  # please fill out the variable values below to point to your own data, using the format '<database>.<schema>.<relation>'
+  # please do not change the variable keys
+  customer.company_daily_electricity_usage :
+  customer.company_locations :
+  customer.employee_business_expenses :
+  customer.employee_business_vehicles :
+  customer.employee_monthly_mileage :
+  customer.employee_work_from_home_days :
+  customer.operational_vehicles_company_1 :
+  customer.operational_vehicles_company_2 :
+  customer.work_from_home_electricity_usage :
+  customer.company_business_travels :
+  customer.company_locations :
+  customer.factory_machinery_usage:
+  customer.factory_machinery:
+
+  emissions_start_date: '2022-01-01' # currently only used in the fct_factory_machinery_carbon_emission model

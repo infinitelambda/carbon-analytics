@@ -1,0 +1,354 @@
+version: 2
+
+models:
+  - name: stg_operational_data__company_business_travels
+    description: '{{ doc("stg_operational_data__company_business_travels_doc") }}'
+    columns:
+      - name: sk_company_business_travels
+        description: Unique identifier.
+      - name: transport_type
+        description: Type of transport.
+        tests:
+          - not_null
+          - relationships:
+              to: ref('stg_emissions_factors__transport_and_travel')
+              field: transport_type
+      - name: origin
+        description: Travel origin.
+      - name: destination
+        description: Travel destination.
+      - name: return
+        description: Is it a return trip?
+      - name: total_miles
+        description: Total number of miles of the business travel.
+        tests:
+          - not_null
+          - dbt_expectations.expect_column_values_to_be_between:
+              min_value: 0
+              max_value: 9999
+              severity: warn
+      - name: date
+        description: Date of the travel.
+
+  - name: stg_operational_data__company_daily_electricity_usage
+    description: '{{ doc("stg_operational_data__company_daily_electricity_usage_doc") }}'
+    columns:
+      - name: sk_company_daily_electricity_usage
+        description: Unique identifier.
+        tests:
+          - not_null
+          - unique
+      - name: id
+        description: Unique identifier.
+      - name: date
+        description: Date of electricity usage.
+      - name: location
+        description: Type of business premise.
+      - name: location_name
+        description: Name of business premise.
+      - name: location_id
+        description: Unique identifier of business premise.
+      - name: location_post_code
+        description: Post code of business premise.
+      - name: location_latitude
+        description: Geographic latitude of business premise.
+      - name: location_longitude
+        description: Geographic longitude of business premise.
+      - name: location_size_sq_ft
+        description: Size of business premise in square feet.
+      - name: kwh_usage
+        description: Total electricity usage for the day in kWh.
+      - name: kwh_usage_per_sq_ft
+        description: Electricity usage for the day in kWh per square foot.
+
+  - name: stg_operational_data__employee_business_expenses
+    description: '{{ doc("stg_operational_data__employee_business_expenses_doc") }}'
+    columns:
+      - name: sk_employee_business_expenses
+        description: Unique identifier.
+        tests:
+          - not_null
+          - unique
+      - name: expense_id
+        description: ID of business expense.
+      - name: date
+        description: Date of business expense.
+      - name: expense_type
+        description: Type of business expense.
+      - name: fuel_type
+        description: Type of fuel purchased (if applicable).
+        tests:
+          - relationships:
+              to: ref('stg_emissions_factors__mobile_combustion')
+              field: "CASE
+                        WHEN lower(regexp_substr(fuel_type, ' ([^-]+) Passenger Cars', 1,1,'e')) = 'gasoline' THEN 'petrol'
+                        ELSE lower(regexp_substr(fuel_type, ' ([^-]+) Passenger Cars', 1,1,'e'))
+                      END"
+      - name: volume
+        description: Volume of purchased fuel (if applicable).
+      - name: amount
+        description: Cost of business expense in GBP.
+      - name: employee_id
+        description: Unique identifier of employee.
+
+  - name: stg_operational_data__employee_business_vehicles
+    description: '{{ doc("stg_operational_data__employee_business_vehicles_doc") }}'
+    columns:
+      - name: sk_employee_business_vehicles
+        description: Unique identifier.
+        tests:
+          - not_null
+          - unique
+      - name: id
+        description: Unique identifier.
+      - name: vehicle_type
+        description: Type of vehicle.
+      - name: vehicle_category
+        description: Vehicle category.
+      - name: company_owned
+        description: Is the vehicle owed by the company?
+      - name: rented
+        description: Is the vehicle rented?
+
+  - name: stg_operational_data__employee_monthly_mileage
+    description: '{{ doc("stg_operational_data__employee_monthly_mileage_doc") }}'
+    columns:
+      - name: sk_employee_monthly_mileage
+        description: Unique identifier.
+      - name: id
+        description: Unique identifier.
+        tests:
+          - not_null
+          - unique
+      - name: car_id
+        description: Unique identifier of the car.
+      - name: fuel_type
+        description: Type of fuel used.
+        tests:
+          - not_null
+          - relationships:
+              to: ref('stg_emissions_factors__mobile_combustion')
+              field: "CASE
+                        WHEN lower(regexp_substr(fuel_type, ' ([^-]+) Passenger Cars', 1,1,'e')) = 'gasoline' THEN 'petrol'
+                        ELSE lower(regexp_substr(fuel_type, ' ([^-]+) Passenger Cars', 1,1,'e'))
+                      END"
+      - name: year
+        description: Year of mileage.
+      - name: month
+        description: Month of mileage.
+      - name: mileage
+        description: Mileage.
+        tests:
+          - not_null
+          - dbt_expectations.expect_column_values_to_be_between:
+              min_value: 0
+              max_value: 9999
+              severity: warn
+
+  - name: stg_operational_data__employee_work_from_home_days
+    description: '{{ doc("stg_operational_data__employee_work_from_home_days_doc") }}'
+    columns:
+      - name: sk_employee_work_from_home_days
+        description: Unique identifier.
+        tests:
+          - not_null
+          - unique
+      - name: date
+        description: Date of working from home.
+      - name: employee_id
+        description: Unique identifier of the employee.
+      - name: company_id
+        description: Unique identifier of the company.
+      - name: company_name
+        description: Company name.
+      - name: contract_type
+        description: Contract type.
+      - name: wfh_days_per_week
+        description: Number of days spent working from home.
+        tests:
+          - dbt_expectations.expect_column_values_to_be_between:
+              min_value: 0
+              max_value: 7
+              severity: warn
+      - name: country
+        description: Country where employee resides and works from home.
+        tests:
+          - not_null
+          - relationships:
+                to: ref('stg_emissions_factors__purchased_electricity_country_level')
+                field: country
+
+  - name: stg_operational_data__operational_vehicles_company_1
+    description: '{{ doc("stg_operational_data__operational_vehicles_company_1_doc") }}'
+    columns:
+      - name: sk_operational_vehicles_company_1
+        description: Unique identifier.
+      - name: date
+        description: Date of operational trip.
+      - name: vehicle_id
+        description: Unique identifier of the vehicle.
+      - name: vehicle_type
+        description: Type of the vehicle.
+        tests:
+          - relationships:
+              to: ref('stg_emissions_factors__transport_and_travel')
+              field: "CASE
+                        WHEN transport_type = 'HGV (all diesel) - tonne.km' THEN 'HGV (all diesel)'
+                        WHEN transport_type = 'HGV refrigerated (all diesel) - tonne.km' THEN 'HGV refrigerated (all diesel)'
+                        ELSE transport_type
+                      END"
+      - name: vehicle_category
+        description: Category of the vehicle.
+      - name: weight_tonne
+        description: Weight of the vehicle in tonnes.
+        tests:
+          - not_null
+      - name: distance_miles
+        description: Distance travelled.
+        tests:
+          - not_null
+          - dbt_expectations.expect_column_values_to_be_between:
+              min_value: 0
+              max_value: 9999
+              severity: warn
+      - name: product_shipped
+        description: Identifier of the shpped product.
+      - name: company_name
+        description: Name of company.
+
+  - name: stg_operational_data__operational_vehicles_company_2
+    description: '{{ doc("stg_operational_data__operational_vehicles_company_2_doc") }}'
+    columns:
+      - name: sk_operational_vehicles_company_2
+        description: Unique identifier.
+      - name: date
+        description: Date of operational trip.
+      - name: vehicle_id
+        description: Unique identifier of the vehicle.
+      - name: vehicle_type
+        description: Type of the vehicle.
+        tests:
+          - relationships:
+              to: ref('stg_emissions_factors__transport_and_travel')
+              field: transport_type
+      - name: vehicle_category
+        description: Category of the vehicle.
+      - name: distance_miles
+        description: Distance travelled.
+        tests:
+          - not_null
+          - dbt_expectations.expect_column_values_to_be_between:
+              min_value: 0
+              max_value: 9999
+              severity: warn
+      - name: company_name
+        description: Name of company.
+
+  - name: stg_operational_data__work_from_home_electricity_usage
+    description: '{{ doc("stg_operational_data__work_from_home_electricity_usage_doc") }}'
+    columns:
+      - name: sk_work_from_home_electricity_usage
+        description: Unique identifier.
+      - name: electricity_usage_type
+        description: What the electricity is used for.
+      - name: date_interval_type
+        description: Timespan of the usage.
+      - name: amount
+        description: Amount of electricity used.
+      - name: measure_type
+        description: The unit in which the power is measured.
+        tests:
+          - not_null
+          - relationships:
+                to: ref('stg_emissions_factors__purchased_electricity_country_level')
+                field: lower(unit)
+
+  - name: stg_operational_data__factory_machinery_usage
+    description: '{{ doc("stg_operational_data__factory_machinery_usage_doc") }}'
+    columns:
+      - name: sk_factory_machinery_usage
+        description: Unique identifier.
+      - name: id
+        description: Unique identifier.
+      - name: date
+        description: Date of the machinery being used.
+      - name: machine_id
+        description: Unique identifier of the machine.
+      - name: machine_type
+        description: Type of the machine.
+      - name: fuel_type
+        description: Type of fuel used by the machine.
+        tests:
+          - not_null
+          - relationships:
+                to: ref('stg_emissions_factors__stationary_combustion')
+                field: "CASE
+                          WHEN FUEL_TYPE = 'Biodiesel (100%)' THEN 'Diesel'
+                          ELSE FUEL_TYPE
+                        END"
+      - name: fuel_volume_metric
+        description: Metric in which the fuel is measured.
+      - name: fuel_volume_used
+        description: Volume of fuel used by the machine.
+
+  - name: stg_operational_data__factory_machinery
+    description: '{{ doc("stg_operational_data__factory_machinery_doc") }}'
+    columns:
+      - name: sk_factory_machinery
+        description: Unique identifier.
+      - name: machine_id
+        description: Unique identifier of the machine.
+      - name: machine_type
+        description: Type of the machine.
+        tests:
+          - not_null
+          - relationships:
+                to: ref('stg_additional_modelling_resources__machinery_consumption')
+                field: machinery_type
+      - name: fuel_type
+        description: Type of fuel used by the machine.
+        tests:
+          - not_null
+          - relationships:
+                to: ref('stg_emissions_factors__stationary_combustion')
+                field: "CASE
+                          WHEN FUEL_TYPE = 'Biodiesel (100%)' THEN 'Diesel'
+                          ELSE FUEL_TYPE
+                        END"
+      - name: size_kw
+        description: Size of the machine in kW.
+        tests:
+          - not_null
+          - relationships:
+                to: ref('stg_additional_modelling_resources__machinery_consumption')
+                field: size
+
+  - name: stg_operational_data__company_locations
+    description: '{{ doc("stg_operational_data__company_locations_doc") }}'
+    columns:
+      - name: sk_company_locations
+        description: Unique identifier.
+      - name: location
+        description: Location type.
+        tests:
+          - not_null
+          - relationships:
+                to: ref('stg_additional_modelling_resources__us_commercial_buildings_demand')
+                field: type
+      - name: location_id
+        description: Unique identifier of the location.
+      - name: location_post_code
+        description: Post code of the location.
+      - name: abbreviated_post_code
+        description: First part of the post code. 
+        tests:
+          - not_null
+          - relationships:
+                to: ref('stg_additional_modelling_resources__carbon_intensity_regions_mapped')
+                field: post_code
+      - name: location_latitude
+        description: Geographic latitude of business premise.
+      - name: location_longitude
+        description: Geographic longitude of business premise.
+      - name: location_size_sq_ft
+        description: Size of the business premises in square feet.

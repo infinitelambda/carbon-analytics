@@ -1,0 +1,19 @@
+version: 2
+
+sources:
+  - name: operational_data # the user can modify the db and schema. will need to design a mechanism for configuring table name references.
+    database: infinitelambda_emissions_data
+    schema: sample_business_data
+    tables:
+      - name: company_daily_electricity_usage
+      - name: employee_business_expenses
+      - name: employee_business_vehicles
+      - name: employee_monthly_mileage
+      - name: employee_work_from_home_days
+      - name: operational_vehicles_company_1
+      - name: operational_vehicles_company_2
+      - name: work_from_home_electricity_usage
+      - name: company_business_travels
+      - name: company_locations
+      - name: factory_machinery_usage
+      - name: factory_machinery

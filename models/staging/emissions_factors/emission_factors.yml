@@ -1,0 +1,130 @@
+version: 2
+
+models:
+  - name: stg_emissions_factors__mobile_combustion
+    description: '{{ doc("stg_emissions_factors__mobile_combustion_doc") }}'
+    columns:
+      - name: FUEL_TYPE
+        description: Type of fuel.
+      - name: FUEL_CATEGORY
+        description:  Category of fuel.
+      - name: KG_CO2_PER_UNIT
+        description: Kilograms of CO2 per unit.
+      - name: KG_BIOGENIC_CO2_PER_UNIT
+        description: Kilograms of biogenic CO2 per unit.
+      - name: TOTAL_KGCO2E
+        description: Kilograms of CO2 equivalent per unit.
+      - name: UNIT
+        description: Unit of measurement.
+      - name: DEFAULT_AVG_FUEL_EFFICIENCY_MILES_PER_UNIT
+        description: The default average fuel efficiency miles per unit of fuel.
+      - name: SOURCE
+        description: Source of data.
+  - name: stg_emissions_factors__purchased_electricity_country_level
+    description: '{{ doc("stg_emissions_factors__purchased_electricity_country_level_doc") }}'
+    columns:
+      - name: COUNTRY
+        description: Country
+      - name: KG_CO2_PER_UNIT
+        description: Kilograms of CO2 per unit.
+      - name: TOTAL_KGCO2E
+        description: Kilograms of CO2 equivalent per unit.
+      - name: UNIT
+        description: Unit of measurement.
+      - name: SCOPE_2_METHODOLOGY
+        description: Methodology.
+      - name: SOURCE
+        description: Source of data.
+  - name: stg_emissions_factors__purchased_electricity_regional_location_based
+    description: '{{ doc("stg_emissions_factors__purchased_electricity_regional_location_based_doc") }}'
+    columns:
+      - name: REGION_NAME
+        description: Name of region.
+      - name: COUNTRY
+        description: Country.
+      - name: KG_CO2_PER_UNIT
+        description: Kilograms of CO2 per unit.
+      - name: TOTAL_KGCO2E
+        description: Kilograms of CO2 equivalent per unit.
+      - name: UNIT
+        description: Unit of measurement.
+      - name: SOURCE
+        description: Source of data.
+  - name: stg_emissions_factors__purchased_electricity_regional_market_based
+    description: '{{ doc("stg_emissions_factors__purchased_electricity_regional_market_based_doc") }}'
+    columns:
+      - name: REGION_NAME
+        description: Name of region.
+      - name: COUNTRY
+        description: Country.
+      - name: KG_CO2_PER_UNIT
+        description: Kilograms of CO2 per unit.
+      - name: TOTAL_KGCO2E
+        description: Kilograms of CO2 equivalent per unit.
+      - name: UNIT
+        description: Unit of measurement.
+      - name: SOURCE
+        description: Source of data.
+  - name: stg_emissions_factors__purchased_electricity_uk_national_generation_mix
+    description: '{{ doc("stg_emissions_factors__purchased_electricity_uk_national_generation_mix_doc") }}'
+    columns:
+      - name: FROM_DATE
+        description: Start time of energy production.
+      - name: TO_DATE
+        description: End time of energy production.
+      - name: GENERATION_MIX
+        description: Types of fuel used for energy generation.
+  - name: stg_emissions_factors__purchased_electricity_uk_regional_carbon_intensity
+    description: '{{ doc("stg_emissions_factors__purchased_electricity_uk_regional_carbon_intensity_doc") }}'
+    columns:
+      - name: FROM_DATE
+        description: Start time of energy production.
+      - name: TO_DATE
+        description: End time of energy production.
+      - name: REGION_ID
+        description: Region ID.
+      - name: REGION_NAME
+        description: Region name.
+      - name: REGION_SHORT_NAME
+        description: Region short name.
+      - name: KGCO2
+        description: Kilograms of CO2 per unit.
+      - name: UNIT
+        description: Unit of measurement.
+      - name: GENERATION_MIX
+        description: Types of fuels used for energy generation.
+
+  - name: stg_emissions_factors__stationary_combustion
+    description: '{{ doc("stg_emissions_factors__stationary_combustion_doc") }}'
+    columns:
+      - name: FUEL_TYPE
+        description:  Type of fuel.
+      - name: FUEL_CATEGORY
+        description: Category of fuel.
+      - name: HEAT_CONTENT_HHV
+        description: Heat content.
+      - name: HEAT_CONTENT_UNIT
+        description: Heat content unit used.
+      - name: KG_CO2_PER_UNIT
+        description:  Kilograms of CO2 per unit.
+      - name: KG_BIOGENIC_CO2_PER_UNIT
+        description: Kilograms of biogenic CO2 per unit.
+      - name: TOTAL_KGCO2E
+        description: Kilograms of CO2 equivalent per unit.
+      - name: UNIT
+        description: Unit of measurement.
+      - name: SOURCE
+        description: Source of data.
+  - name: stg_emissions_factors__transport_and_travel
+    description: '{{ doc("stg_emissions_factors__transport_and_travel_doc") }}'
+    columns:
+      - name: TRANSPORT_TYPE
+        description: Type of transport.
+      - name: KG_CO2_PER_UNIT
+        description: Kilograms of CO2 per unit.
+      - name: TOTAL_KGCO2E
+        description:  Kilograms of CO2 equivalent per unit.
+      - name: UNIT
+        description: Unit of measurement.
+      - name: SOURCE
+        description: Source of data.

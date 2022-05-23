@@ -1,0 +1,69 @@
+version: 2
+
+macros:
+  - name: length_converter
+    description: '{{ doc("length_converter_doc") }}'
+    arguments:
+      - name: from_metric
+        type: string
+        description: The data's original metric.
+      - name: to_metric
+        type: string
+        description: The metric to which the data is being converted.
+      - name: field_name_source
+        type: string
+        description: Column name of the data.
+      - name: scale
+        type: number
+        description: The number of digits after the decimal point. Not a mandatory argument. The default value is 2.
+
+  - name: kilometre_and_mile
+    description: Helper macro called by length_converter. This must never be called by the practitioner.
+
+  - name: kilometre_and_metre
+    description: Helper macro called by length_converter. This must never be called by the practitioner.
+
+  - name: volume_converter
+    description: '{{ doc("volume_converter_doc") }}'
+    arguments:
+      - name: from_metric
+        type: string
+        description: The data's original metric.
+      - name: to_metric
+        type: string
+        description: The metric to which the data is being converted.
+      - name: field_name_source
+        type: string
+        description: Column name of the data.
+      - name: scale
+        type: number
+        description: The number of digits after the decimal point. Not a mandatory argument. The default value is 2.
+
+  - name: litre_and_gallon
+    description: Helper macro called by volume_converter. This must never be called by the practitioner.
+
+  - name: weight_converter
+    description: '{{ doc("weight_converter_doc") }}'
+    arguments:
+      - name: from_metric
+        type: string
+        description: The data's original metric.
+      - name: to_metric
+        type: string
+        description: The metric to which the data is being converted.
+      - name: field_name_source
+        type: string
+        description: Column name of the data.
+      - name: scale
+        type: number
+        description: The number of digits after the decimal point. Not a mandatory argument. The default value is 2.
+
+  - name: kilogram_and_pound
+    description: Helper macro called by weight_converter. This must never be called by the practitioner.
+  - name: kilogram_and_tonne
+    description: Helper macro called by weight_converter. This must never be called by the practitioner.
+
+  - name: abort
+    description: Helper macro called by the converters. This should never be called by the practitioner.
+  - name: metric_identifier
+    description: Helper macro called by the converters. This should never be called by the practitioner.

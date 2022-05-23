@@ -1,0 +1,13 @@
+dbt_susan:        
+  outputs:
+    default:
+      type: snowflake
+      account: <your-domain>.<your-region>
+      user: <YOUR_USER_NAME>
+      password: <YOUR_USER_PASSWORD>
+      role: <YOUR_ROLE_NAME>
+      database: <YOUR_DATABASE_NAME>
+      warehouse: <YOUR_WAREHOUSE_NAME>
+      schema: <YOUR_SCHEMA_NAME>
+      threads: 8
+      client_session_keep_alive: False
