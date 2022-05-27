@@ -29,6 +29,7 @@ This model currently shows average machinery fuel consumption data only for dies
 
 The sources of this data are listed bhelow:
 - [Diesel power generators](https://www.generatorsource.com/Diesel_Fuel_Consumption.aspx)
+- [Natural gas power generators](https://www.generatorsource.com/Natural_Gas_Fuel_Consumption.aspx)
 {% enddocs %}
 
 {% docs stg_additional_modelling_resources__us_commercial_buildings_demand_doc %}
