@@ -21,6 +21,17 @@ models:
         description: Hour of the day (0-23).
       - name: factor
         description: Electricity demand factor (see model docs).
+  - name: stg_additional_modelling_resources__daily_usage_factors
+    description: '{{ doc("stg_additional_modelling_resources__daily_usage_factors_doc") }}'
+    columns:
+      - name: sk_daily_usage_factors
+        description: Unique identifier.
+      - name: premise_type
+        description: Type of business premise.
+      - name: weekday_factor
+        description: Factor for weekday consumption.
+      - name: weekend_factor
+        description: Factor for weekend day consumption (see model docs).
   - name: stg_additional_modelling_resources__machinery_consumption
     description: '{{ doc("stg_additional_modelling_resources__machinery_consumption_doc") }}'
     columns:

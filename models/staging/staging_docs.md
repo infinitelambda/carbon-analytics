@@ -24,6 +24,10 @@ These factors may be modified in the future to reflect:
 Data practitioners will be notified of such changes and a historic record of the factors may be created.
 {% enddocs %}
 
+{% docs stg_additional_modelling_resources__daily_usage_factors_doc %}
+TBA
+{% enddocs %}
+
 {% docs stg_additional_modelling_resources__machinery_consumption_doc %}
 This model currently shows average machinery fuel consumption data only for diesel power generators. In the future, additional types of machinery will be added.
 
@@ -111,6 +115,10 @@ It is used in the fct_business_travels_carbon_emission model. Please refer to it
 This data is artificially generated to simulate daily records of electricity usage in kWh across business premises. It contains, among other things, total power usage and usage per square foot.
 
 This is currently not used anywhere.
+{% enddocs %}
+
+{% docs stg_operational_data__company_quarterly_electricity_usage_doc %}
+TBA
 {% enddocs %}
 
 {% docs stg_operational_data__company_locations_doc %}
