@@ -17,6 +17,8 @@ models:
         description: Unique identifier.
       - name: premise_type
         description: Type of premise.
+      - name: weekday
+        description: Denotes if the factor is for a weekday or not.
       - name: hour
         description: Hour of the day (0-23).
       - name: factor
