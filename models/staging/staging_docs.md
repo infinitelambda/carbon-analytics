@@ -10,9 +10,9 @@ This model maps British post codes to carbon intensity regions (Please refer to 
 
 This model holds electricity demand factors based on [Ofgem's Electricity demand profiles](https://www.google.com/search?q=ofgem+demand+file&ei=v2h6Yp6uG9K78gKXpb_ACw&ved=0ahUKEwjeic2GhdX3AhXSnVwKHZfSD7gQ4dUDCA4&uact=5&oq=ofgem+demand+file&gs_lcp=Cgdnd3Mtd2l6EAMyBQghEKABOgcIABBHELADSgQIQRgASgQIRhgAUPMDWPMDYPsFaAJwAXgAgAFniAFnkgEDMC4xmAEAoAEByAEIwAEB&sclient=gws-wiz#:~:text=Electricity%20demand%20profiles,docs%20%E2%80%BA%202012/06). The purpose of this is to reflect that electricity demand fluctuates throughout the day.
 
-The factors are the same across regions and building types, and are calculated in the following way:
-1. Hourly factors for commercial offices in the Input data sheet are averaged across seasons.
-2. The above averages are summed.
+The factors are the same across regions, and are calculated in the following way:
+1. Hourly factors in the Input data sheet are grouped by premise type and day type (weekend or week day), and averaged across seasons.
+2. The above averages are grouped by premise type and day type, and summed.
 3. The averaged factors from step 1 are presented as proportions from the step 2 sum.
 
 These factors may be modified in the future to reflect:

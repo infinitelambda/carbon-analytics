@@ -21,6 +21,12 @@ SELECT
   SUM(ahi.HOURLY_KGCO2*huf.FACTOR) AS "WEIGHTED_DAILY_KGCO2"
 FROM average_hourly_intensity ahi
 LEFT JOIN {{ ref('stg_additional_modelling_resources__hourly_usage_factors') }} huf ON huf.HOUR=ahi.INTENSITY_HOUR
+AND (
+  CASE
+    WHEN dayname(ahi.INTENSITY_DATE) IN ('Mon', 'Tue', 'Wed', 'Thu', 'Fri') THEN TRUE
+    WHEN dayname(ahi.INTENSITY_DATE) IN ('Sat', 'Sun') THEN FALSE
+  ELSE NULL END
+) = huf.WEEKDAY
 GROUP BY 1,2
 )
 SELECT
