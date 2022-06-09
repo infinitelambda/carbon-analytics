@@ -5,10 +5,10 @@ This model estimates business premises' daily carbon emissions based on premise 
 Using [carbon intensity](https://carbonintensity.org.uk/) and average energy usage data, the model produces daily estimates of a business premise's carbon emissions. Averages are based on annual energy consumption in kWh per square foot. The emissions are expressed in kilograms of CO2 equivalent.
 
 This model requires columns with the below names and containing the data described:
- - LOCATION_ID - A unique identifier of the premise
- - LOCATION - Premise type as defined [here](link-to-docs-site)
- - LOCATION_SIZE_SQ_FT - Premise area expressed in square feet
- - LOCATION_POST_CODE - A UK post code for the premise
+ - LOCATION_ID - A unique identifier of the premise.
+ - LOCATION - Premise type as defined [here](link-to-docs-site).
+ - LOCATION_SIZE_SQ_FT - Premise area expressed in square feet.
+ - ABBREVIATED_POST_CODE - The letters in the first half of a UK post code for the premise.
  - LOCATION_LATITUDE - Geographic latitude of the premise. *** NOTE *** that this is not used in any calculations or joins, therefore null values are accepted.
  - LOCATION_LONGITUDE - Geographic longitude of the premise. *** NOTE *** that this is not used in any calculations or joins, therefore null values are accepted.
 
@@ -29,6 +29,7 @@ This model requires columns with the below names and containing the data describ
  - LOCATION - Premise type as defined [here](link-to-docs-site)
  - LOCATION_LATITUDE - Geographic latitude of the premise. *** NOTE *** that this is not used in any calculations or joins, therefore null values are accepted.
  - LOCATION_LONGITUDE - Geographic longitude of the premise. *** NOTE *** that this is not used in any calculations or joins, therefore null values are accepted.
+ - ABBREVIATED_POST_CODE - The letters in the first half of a UK post code for the premise
  - PERIOD - A column specifying what period each row covers. This is only used for grouping purposes during calculations so any wording is accepted. However, one period cannot have more than one name (e.g. avoid having both 'Q1-2020' and 'Q1 2020').
  - PERIOD_START - The first date included in the period, Ideally in the YYYY-MM-DD format.
  - PERIOD_END - The last date included in the period, Ideally in the YYYY-MM-DD format.
@@ -37,7 +38,7 @@ This model requires columns with the below names and containing the data describ
  - Usage is the same across week and weekend days within the same period.
  - There are no days where usage is zero.
  - Electricity demand factors do not vary across seasons.
- - The model does not consider public holidays. Those falling on weekdays are treated as regular weekdays. 
+ - The model does not consider public holidays. Those falling on weekdays are treated as regular weekdays.
 
 {% enddocs %}
 

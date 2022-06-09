@@ -255,11 +255,19 @@ models:
     columns:
       - name: date
         description: Date of the estimated carbon emissions.
+        tests:
+          - not_null
+          - dbt_expectations.expect_column_values_to_be_of_type:
+              column_type: date
       - name: location_id
         description: Unique identifier of the business' premises.
       - name: location_latitude
         description: Geographic latitude of the business' premises.
       - name: location_longitude
         description: Geographic longitude of the business' premises.
+      - name: carbon_intensity_region_name
+        description: Region name of the business premises, as defined in the carbon intensity forecast.
+      - name: location_category
+        description: Location type of the business premises, as defined in the commercial buildings demand data.
       - name: total_kgco2e
         description: Estimated emissions in kilograms of CO2 equivalent.

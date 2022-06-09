@@ -80,6 +80,13 @@ models:
         description: Name of business premise.
       - name: location_post_code
         description: Post code of business premise.
+      - name: abbreviated_post_code
+        description: First part of the post code.
+        tests:
+          - not_null
+          - relationships:
+                to: ref('stg_additional_modelling_resources__carbon_intensity_regions_mapped')
+                field: post_code
       - name: location_latitude
         description: Geographic latitude of business premise.
       - name: location_longitude
