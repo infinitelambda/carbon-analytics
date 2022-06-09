@@ -16,6 +16,31 @@ The data must be normalised, i.e. each premise must not appear more than once.
 
 {% enddocs %}
 
+{% docs fct_invoiced_electricity_usage_carbon_emission_doc %}
+
+This model estimates business premises' daily carbon emissions based on premise type (office, warehouse, store, etc.) and invoiced electricity usage. The invoiced usage can be of any frequency - weekly, monthly, quarterly, etc.
+
+Estimations utilise demand factors based on [Ofgem's Electricity demand profiles](https://www.google.com/search?q=ofgem+demand+file&ei=v2h6Yp6uG9K78gKXpb_ACw&ved=0ahUKEwjeic2GhdX3AhXSnVwKHZfSD7gQ4dUDCA4&uact=5&oq=ofgem+demand+file&gs_lcp=Cgdnd3Mtd2l6EAMyBQghEKABOgcIABBHELADSgQIQRgASgQIRhgAUPMDWPMDYPsFaAJwAXgAgAFniAFnkgEDMC4xmAEAoAEByAEIwAEB&sclient=gws-wiz#:~:text=Electricity%20demand%20profiles,docs%20%E2%80%BA%202012/06). The purpose of this is to reflect that electricity usage can be different on weekends and weekdays depending on the business premise.
+
+The model counts the number of weekend and week days within each period. Using the daily demand factors, it calculates each day's percentage of the period's total electricity usage. In the model's SQL query these percentages are referred to as WEEKDAY_FACTOR_ADJUSTED and WEEKEND_FACTOR_ADJUSTED.
+
+This model requires columns with the below names and containing the data described:
+ - LOCATION_ID - A unique identifier of the premise
+ - LOCATION - Premise type as defined [here](link-to-docs-site)
+ - LOCATION_LATITUDE - Geographic latitude of the premise. *** NOTE *** that this is not used in any calculations or joins, therefore null values are accepted.
+ - LOCATION_LONGITUDE - Geographic longitude of the premise. *** NOTE *** that this is not used in any calculations or joins, therefore null values are accepted.
+ - PERIOD - A column specifying what period each row covers. This is only used for grouping purposes during calculations so any wording is accepted. However, one period cannot have more than one name (e.g. avoid having both 'Q1-2020' and 'Q1 2020').
+ - PERIOD_START - The first date included in the period, Ideally in the YYYY-MM-DD format.
+ - PERIOD_END - The last date included in the period, Ideally in the YYYY-MM-DD format.
+
+ *** IMPORTANT: *** The model makes a number of assumptions on electricity usage:
+ - Usage is the same across week and weekend days within the same period.
+ - There are no days where usage is zero.
+ - Electricity demand factors do not vary across seasons.
+ - The model does not consider public holidays. Those falling on weekdays are treated as regular weekdays. 
+
+{% enddocs %}
+
 {% docs fct_business_cars_carbon_emission_doc %}
 This model estimates business cars' monthly carbon emissions based on monthly mileage and fuel type.
 

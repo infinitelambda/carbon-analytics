@@ -25,7 +25,19 @@ Data practitioners will be notified of such changes and a historic record of the
 {% enddocs %}
 
 {% docs stg_additional_modelling_resources__daily_usage_factors_doc %}
-TBA
+This model holds electricity demand factors based on [Ofgem's Electricity demand profiles](https://www.google.com/search?q=ofgem+demand+file&ei=v2h6Yp6uG9K78gKXpb_ACw&ved=0ahUKEwjeic2GhdX3AhXSnVwKHZfSD7gQ4dUDCA4&uact=5&oq=ofgem+demand+file&gs_lcp=Cgdnd3Mtd2l6EAMyBQghEKABOgcIABBHELADSgQIQRgASgQIRhgAUPMDWPMDYPsFaAJwAXgAgAFniAFnkgEDMC4xmAEAoAEByAEIwAEB&sclient=gws-wiz#:~:text=Electricity%20demand%20profiles,docs%20%E2%80%BA%202012/06). The purpose of this is to reflect that electricity usage can be different on weekends and weekdays depending on the business premise.
+
+The factors are the same across regions and are calculated in the following way:
+1. Hourly factors per premise type in the Input data sheet are averaged across seasons.
+2. The above averages are summed.
+
+These factors may be modified in the future to reflect:
+- Any significant changes in consumer demand
+- Variations between regions
+- Variations between premise types
+- Anything else that may reasonably improve emission estimates
+
+Data practitioners will be notified of such changes and a historic record of the factors may be created.
 {% enddocs %}
 
 {% docs stg_additional_modelling_resources__machinery_consumption_doc %}
@@ -118,7 +130,9 @@ This is currently not used anywhere.
 {% enddocs %}
 
 {% docs stg_operational_data__company_quarterly_electricity_usage_doc %}
-TBA
+
+This data is artificially generated to simulate quarterly records of electricity usage in kWh across business premises. Unlike other sample data, this one covers 2021 as well so that more quarters are present. The data for 2022 is based on company_daily_electricity_usage.
+
 {% enddocs %}
 
 {% docs stg_operational_data__company_locations_doc %}

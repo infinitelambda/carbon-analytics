@@ -249,3 +249,17 @@ models:
         description: Date of the machinery being used.
       - name: total_kgco2e
         description: Estimated emissions in kilograms of CO2 equivalent.
+
+  - name: fct_invoiced_electricity_usage_carbon_emission
+    description: '{{ doc("fct_invoiced_electricity_usage_carbon_emission_doc") }}'
+    columns:
+      - name: date
+        description: Date of the estimated carbon emissions.
+      - name: location_id
+        description: Unique identifier of the business' premises.
+      - name: location_latitude
+        description: Geographic latitude of the business' premises.
+      - name: location_longitude
+        description: Geographic longitude of the business' premises.
+      - name: total_kgco2e
+        description: Estimated emissions in kilograms of CO2 equivalent.
