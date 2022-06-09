@@ -18,7 +18,7 @@ The data must be normalised, i.e. each premise must not appear more than once.
 
 {% docs fct_invoiced_electricity_usage_carbon_emission_doc %}
 
-This model estimates business premises' daily carbon emissions based on premise type (office, warehouse, store, etc.) and invoiced electricity usage. The invoiced usage can be of any frequency - weekly, monthly, quarterly, etc.
+This model estimates business premises' daily carbon emissions based on premise type (office, warehouse, store, etc.) and invoiced electricity usage. The invoiced usage can be of any frequency - weekly, monthly, invoiced, etc.
 
 Estimations utilise demand factors based on [Ofgem's Electricity demand profiles](https://www.google.com/search?q=ofgem+demand+file&ei=v2h6Yp6uG9K78gKXpb_ACw&ved=0ahUKEwjeic2GhdX3AhXSnVwKHZfSD7gQ4dUDCA4&uact=5&oq=ofgem+demand+file&gs_lcp=Cgdnd3Mtd2l6EAMyBQghEKABOgcIABBHELADSgQIQRgASgQIRhgAUPMDWPMDYPsFaAJwAXgAgAFniAFnkgEDMC4xmAEAoAEByAEIwAEB&sclient=gws-wiz#:~:text=Electricity%20demand%20profiles,docs%20%E2%80%BA%202012/06). The purpose of this is to reflect that electricity usage can be different on weekends and weekdays depending on the business premise.
 

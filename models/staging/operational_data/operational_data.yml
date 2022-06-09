@@ -60,10 +60,10 @@ models:
         description: Total electricity usage for the day in kWh.
       - name: kwh_usage_per_sq_ft
         description: Electricity usage for the day in kWh per square foot.
-  - name: stg_operational_data__company_quarterly_electricity_usage
-    description: '{{ doc("stg_operational_data__company_quarterly_electricity_usage_doc") }}'
+  - name: stg_operational_data__company_invoiced_electricity_usage
+    description: '{{ doc("stg_operational_data__company_invoiced_electricity_usage_doc") }}'
     columns:
-      - name: sk_company_quarterly_electricity_usage
+      - name: sk_company_invoiced_electricity_usage
         description: Unique identifier.
         tests:
           - not_null

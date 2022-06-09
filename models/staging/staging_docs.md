@@ -129,9 +129,9 @@ This data is artificially generated to simulate daily records of electricity usa
 This is currently not used anywhere.
 {% enddocs %}
 
-{% docs stg_operational_data__company_quarterly_electricity_usage_doc %}
+{% docs stg_operational_data__company_invoiced_electricity_usage_doc %}
 
-This data is artificially generated to simulate quarterly records of electricity usage in kWh across business premises. Unlike other sample data, this one covers 2021 as well so that more quarters are present. The data for 2022 is based on company_daily_electricity_usage.
+This data is artificially generated to simulate invoiced records of electricity usage in kWh across business premises. Unlike other sample data, this one covers 2021 as well so that more quarters are present. The data for 2022 is based on company_daily_electricity_usage.
 
 {% enddocs %}
 

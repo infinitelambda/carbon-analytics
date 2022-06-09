@@ -17,10 +17,10 @@ date_spine_filtered as (
   END AS DAY_TYPE
 FROM date_spine
 WHERE date_day >= (
-  SELECT MIN(PERIOD_START) FROM {{ ref('stg_operational_data__company_quarterly_electricity_usage') }}
+  SELECT MIN(PERIOD_START) FROM {{ ref('stg_operational_data__company_invoiced_electricity_usage') }}
 )
 AND date_day <= (
-  SELECT MAX(PERIOD_END) FROM {{ ref('stg_operational_data__company_quarterly_electricity_usage') }}
+  SELECT MAX(PERIOD_END) FROM {{ ref('stg_operational_data__company_invoiced_electricity_usage') }}
 )
 ),
 period_factors_preliminary as (
@@ -34,7 +34,7 @@ period_factors_preliminary as (
     SUM(CASE WHEN DAY_TYPE = 'Weekday' THEN 1 ELSE 0 END) AS WEEKDAY_COUNT,
     SUM(CASE WHEN DAY_TYPE = 'Weekend' THEN 1 ELSE 0 END) AS WEEKEND_COUNT
   FROM date_spine_filtered DSF
-  LEFT JOIN {{ ref('stg_operational_data__company_quarterly_electricity_usage') }} CD ON DSF.DATE >= CD.PERIOD_START AND DSF.DATE <= CD.PERIOD_END
+  LEFT JOIN {{ ref('stg_operational_data__company_invoiced_electricity_usage') }} CD ON DSF.DATE >= CD.PERIOD_START AND DSF.DATE <= CD.PERIOD_END
   GROUP BY 1,2,3,4,5,6
 ),
 period_factors AS (
@@ -82,7 +82,7 @@ SELECT
     WHEN DSF.DAY_TYPE = 'Weekend' THEN  ROUND(CD.KWH_USAGE * WDI."WEIGHTED_DAILY_KGCO2", 2)
   END AS TOTAL_KGCO2E
 FROM date_spine_filtered DSF
-LEFT JOIN {{ ref('stg_operational_data__company_quarterly_electricity_usage') }} CD ON DSF.DATE >= CD.PERIOD_START AND DSF.DATE <= CD.PERIOD_END
+LEFT JOIN {{ ref('stg_operational_data__company_invoiced_electricity_usage') }} CD ON DSF.DATE >= CD.PERIOD_START AND DSF.DATE <= CD.PERIOD_END
 LEFT JOIN {{ ref('stg_additional_modelling_resources__carbon_intensity_regions_mapped') }} R ON R.POST_CODE=CD.ABBREVIATED_POST_CODE
 LEFT JOIN weighted_daily_intensity WDI on WDI.REGION_NAME=r.CARBON_INTENSITY_REGION AND WDI.INTENSITY_DATE = DSF.DATE
 ORDER BY 2,1
