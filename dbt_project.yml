@@ -31,7 +31,7 @@ vars:
   operational_data_source: sample # modify this value to 'customer' to use the 'customer._' sources if you have defined any below
 
   sample.company_daily_electricity_usage : infinitelambda_emissions_data.sample_business_data.company_daily_electricity_usage
-  sample.company_quarterly_electricity_usage : infinitelambda_emissions_data.sample_business_data.company_quarterly_electricity_usage
+  sample.company_invoiced_electricity_usage : infinitelambda_emissions_data.sample_business_data.company_invoiced_electricity_usage
   sample.employee_business_expenses : infinitelambda_emissions_data.sample_business_data.employee_business_expenses
   sample.employee_business_vehicles : infinitelambda_emissions_data.sample_business_data.employee_business_vehicles
   sample.employee_monthly_mileage : infinitelambda_emissions_data.sample_business_data.employee_monthly_mileage
@@ -47,7 +47,7 @@ vars:
   # please fill out the variable values below to point to your own data, using the format '<database>.<schema>.<relation>'
   # please do not change the variable keys
   customer.company_daily_electricity_usage :
-  customer.company_quarterly_electricity_usage :
+  customer.company_invoiced_electricity_usage :
   customer.company_locations :
   customer.employee_business_expenses :
   customer.employee_business_vehicles :

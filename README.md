@@ -11,6 +11,7 @@ These are the final models the package produces. There are also some staging and
 | fct_business_cars_carbon_emission                    | Estimated emissions per vehicle, daily                   |
 | fct_business_travels_carbon_emission                 | Estimated emissions per business travel type, daily               |
 | fct_daily_electricity_usage_carbon_emission          | Estimated emissions from electricity per location, daily                  |
+| fct_invoiced_electricity_usage_carbon_emission          | Estimated emissions from invoiced electricity per location                  |
 | ft_daily_heating_carbon_emission                     | Estimated emissions from heating per location, daily
 | fct_employee_business_cars_carbon_emission           | Estimated emissions per employee car, by date of expense |
 | fct_factory_machinery_carbon_emission                | Estimated emissions from machinery based on capacity     |
@@ -33,7 +34,7 @@ By default, this package will use the sample data provided in the shared dataset
 vars:
     operational_data_source: sample
 ```
-changes to 
+changes to
 
 ```yml
 vars:
