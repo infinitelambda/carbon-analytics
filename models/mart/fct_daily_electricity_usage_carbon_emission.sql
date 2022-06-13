@@ -27,7 +27,7 @@ AND (
     WHEN dayname(ahi.INTENSITY_DATE) IN ('Mon', 'Tue', 'Wed', 'Thu', 'Fri') THEN TRUE
     WHEN dayname(ahi.INTENSITY_DATE) IN ('Sat', 'Sun') THEN FALSE
   ELSE NULL END
-) = huf.WEEKDAY
+) = huf.IS_WEEKDAY
 GROUP BY 1,2,3
 ),
 factored_locations as (
