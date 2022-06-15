@@ -8,17 +8,17 @@ These are the final models the package produces. There are also some staging and
 
 | **model**                                            |  **description**                                         |
 | ---------------------------------------------------- | -------------------------------------------------------- |
-| fct_business_cars_carbon_emission                    | Estimated emissions per vehicle, daily                   |
-| fct_business_travels_carbon_emission                 | Estimated emissions per business travel type, daily               |
-| fct_daily_electricity_usage_carbon_emission          | Estimated emissions from electricity per location, daily                  |
-| fct_invoiced_electricity_usage_carbon_emission          | Estimated emissions from invoiced electricity per location                  |
-| ft_daily_heating_carbon_emission                     | Estimated emissions from heating per location, daily
+| fct_business_cars_carbon_emission                    | Estimated emissions per vehicle, daily |
+| fct_business_travels_carbon_emission                 | Estimated emissions per business travel type, daily |
+| fct_estimated_electricity_usage_carbon_emission      | Estimated emissions from electricity per location, daily |
+| fct_invoiced_electricity_usage_carbon_emission       | Estimated emissions from invoiced electricity per location |
+| ft_daily_heating_carbon_emission                     | Estimated emissions from heating per location, daily |
 | fct_employee_business_cars_carbon_emission           | Estimated emissions per employee car, by date of expense |
-| fct_factory_machinery_carbon_emission                | Estimated emissions from machinery based on capacity     |
-| fct_factory_machinery_usage_carbon_emission          | Estimated emissions from machinery based on fuel usage   |
-| fct_operational_vehicles_distance_and_weight_based_carbon_emission   | Estimated emissions from operational vehicles' travelled distance and weight, daily                                             |
+| fct_factory_machinery_carbon_emission                | Estimated emissions from machinery based on capacity |
+| fct_factory_machinery_usage_carbon_emission          | Estimated emissions from machinery based on fuel usage |
+| fct_operational_vehicles_distance_and_weight_based_carbon_emission   | Estimated emissions from operational vehicles' travelled distance and weight, daily |
 | fct_operational_vehicles_distance_based_carbon_emission | Estimated emissions from operational vehicles' travelled distance, daily |
-| fct_work_from_home_carbon_emission                   | Estimated emissions from WFH electricity usage, weekly   |
+| fct_work_from_home_carbon_emission                   | Estimated emissions from WFH electricity usage, weekly |
 
 ## Getting started
 To access the emissions dataset, go to Susan's Snowflake [data marketplace listing](insert-marketplace-link) and click 'Get Data'. A set of sample operational data is included, which will allow you to build sample metrics with this package if you're not yet ready to use your own data.
@@ -63,7 +63,7 @@ Contributions to this package are welcome! Please create issues or open PRs agai
 
 ## Appendix
 ### A1 - Required values
-#### fct_daily_electricity_usage_carbon_emission
+#### fct_estimated_electricity_usage_carbon_emission
 
 Your LOCATION column must classify your premises in one of the following values:
 - Airport
@@ -333,7 +333,7 @@ Your FUEL_TYPE column must classify the type of fuel used by your machinery in o
 - Vegetable Oil
 - Wood and Wood Residuals
 
-#### fct_daily_heating_carbon_emission
+#### fct_estimated_heating_usage_carbon_emission
 
 Your LOCATION column must classify your business premises in one of the following values:
 - Airport
