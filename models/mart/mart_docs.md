@@ -1,4 +1,4 @@
-{% docs fct_daily_electricity_usage_carbon_emission_doc %}
+{% docs fct_estimated_electricity_usage_carbon_emission_doc %}
 
 This model estimates business premises' daily carbon emissions based on premise type (office, warehouse, store, etc.) and area.
 
@@ -159,7 +159,7 @@ This model requires columns with the below names and containing the data describ
  {% enddocs %}
 
 
-{% docs fct_daily_heating_carbon_emission_doc %}
+{% docs fct_estimated_heating_usage_carbon_emission_doc %}
 
 This model estimates daily carbon emissions as a result of heating business premises.
 

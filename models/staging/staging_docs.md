@@ -138,7 +138,7 @@ This data is artificially generated to simulate invoiced records of electricity 
 {% docs stg_operational_data__company_locations_doc %}
 This data is artificially generated and contains information on business premises. It is essentially a normalised version of stg_operational_data__company_daily_electricity_usage.
 
-This is currently used in the fct_daily_electricity_usage_carbon_emission model.
+This is currently used in the fct_estimated_electricity_usage_carbon_emission model.
 {% enddocs %}
 
 {% docs stg_operational_data__employee_business_expenses_doc %}

@@ -139,8 +139,8 @@ models:
           - dbt_expectations.expect_column_values_to_be_in_type_list:
               column_type_list: [int, float]
 
-  - name: fct_daily_electricity_usage_carbon_emission
-    description: '{{ doc("fct_daily_electricity_usage_carbon_emission_doc") }}'
+  - name: fct_estimated_electricity_usage_carbon_emission
+    description: '{{ doc("fct_estimated_electricity_usage_carbon_emission_doc") }}'
     tests:
       - dbt_utils.unique_combination_of_columns:
           combination_of_columns:
@@ -199,8 +199,8 @@ models:
       - name: total_kgco2e
         description: Estimated emissions in kilograms of CO2 equivalent.
 
-  - name: fct_daily_heating_carbon_emission
-    description: '{{ doc("fct_daily_heating_carbon_emission_doc") }}'
+  - name: fct_estimated_heating_usage_carbon_emission
+    description: '{{ doc("fct_estimated_heating_usage_carbon_emission_doc") }}'
     tests:
       - dbt_utils.unique_combination_of_columns:
           combination_of_columns:
