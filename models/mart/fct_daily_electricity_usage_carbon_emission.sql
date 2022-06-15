@@ -57,6 +57,7 @@ SELECT
   cd.LOCATION_LONGITUDE,
   ac.REGION_NAME as CARBON_INTENSITY_REGION_NAME,
   dem.TYPE AS LOCATION_CATEGORY,
+  ROUND(cd.LOCATION_SIZE_SQ_FT*(dem.ANNUAL_KWH_DEMAND/365), 2) as ESTIMATED_KWH_USAGE,
   ROUND(cd.LOCATION_SIZE_SQ_FT*(dem.ANNUAL_KWH_DEMAND/365)*"WEIGHTED_DAILY_KGCO2",3) AS TOTAL_KGCO2E
 FROM company_locations CD
 LEFT JOIN {{ ref('stg_additional_modelling_resources__us_commercial_buildings_demand') }} dem ON upper(dem.TYPE)=upper(cd.LOCATION)

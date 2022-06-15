@@ -181,6 +181,8 @@ models:
               source_column_name: location_id
       - name: location_category
         description: Location type of the business premises, as defined in the commercial buildings demand data.
+      - name: estimated_kwh_usage
+        description: Estimated electricity usage in kWh.
       - name: total_kgco2e
         description: Estimated emissions in kilograms of CO2 equivalent.
         tests:
@@ -269,5 +271,7 @@ models:
         description: Region name of the business premises, as defined in the carbon intensity forecast.
       - name: location_category
         description: Location type of the business premises, as defined in the commercial buildings demand data.
+      - name: estimated_kwh_usage
+        description: Estimated electricity usage in kWh.
       - name: total_kgco2e
         description: Estimated emissions in kilograms of CO2 equivalent.
