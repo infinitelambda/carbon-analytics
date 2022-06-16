@@ -118,78 +118,104 @@ Please refer to the SOURCE column for details on where the data comes from.
 {% enddocs %}
 
 {% docs stg_operational_data__company_business_travels_doc %}
+**Important**: The documentation is for the sample data provided in this package. If you are using your own data, the documentation may not match what you have provided.
+
 This data is artificially generated to simulate records of business travels.
 
 It is used in the fct_business_travels_carbon_emission model. Please refer to its documentation for more details.
 {% enddocs %}
 
 {% docs stg_operational_data__company_daily_electricity_usage_doc %}
+**Important**: The documentation is for the sample data provided in this package. If you are using your own data, the documentation may not match what you have provided.
+
 This data is artificially generated to simulate daily records of electricity usage in kWh across business premises. It contains, among other things, total power usage and usage per square foot.
 
 This is currently not used anywhere.
 {% enddocs %}
 
 {% docs stg_operational_data__company_invoiced_electricity_usage_doc %}
+**Important**: The documentation is for the sample data provided in this package. If you are using your own data, the documentation may not match what you have provided.
+
 
 This data is artificially generated to simulate invoiced records of electricity usage in kWh across business premises. Unlike other sample data, this one covers 2021 as well so that more quarters are present. The data for 2022 is based on company_daily_electricity_usage.
 
 {% enddocs %}
 
 {% docs stg_operational_data__company_locations_doc %}
+**Important**: The documentation is for the sample data provided in this package. If you are using your own data, the documentation may not match what you have provided.
+
 This data is artificially generated and contains information on business premises. It is essentially a normalised version of stg_operational_data__company_daily_electricity_usage.
 
 This is currently used in the fct_estimated_electricity_usage_carbon_emission model.
 {% enddocs %}
 
 {% docs stg_operational_data__employee_business_expenses_doc %}
+**Important**: The documentation is for the sample data provided in this package. If you are using your own data, the documentation may not match what you have provided.
+
 This data is artificially generated to simulate a list of employees' daily business expenses. Currently it only consists of two types of expenses: food and fuel. Only the latter is used for carbon emissions estimation.
 
 This data is used in the fct_employee_business_cars_carbon_emission model. Please refer to its documentation for more details.
 {% enddocs %}
 
 {% docs stg_operational_data__employee_business_vehicles_doc %}
+**Important**: The documentation is for the sample data provided in this package. If you are using your own data, the documentation may not match what you have provided.
+
 This data is artificially generated to simulate a list of company vehicles.
 
 This is currently not used anywhere.
 {% enddocs %}
 
 {% docs stg_operational_data__employee_monthly_mileage_doc %}
+**Important**: The documentation is for the sample data provided in this package. If you are using your own data, the documentation may not match what you have provided.
+
 This data is artificially generated and contains employees' monthly mileage.
 
 This data is used in the fct_business_cars_carbon_emission model. Please refer to its documentation for more details.
 {% enddocs %}
 
 {% docs stg_operational_data__operational_vehicles_company_1_doc %}
+**Important**: The documentation is for the sample data provided in this package. If you are using your own data, the documentation may not match what you have provided.
+
 This data is artificially generated and contains details on operational trips such as deliveries and transportation of goods. Most importantly, it contains data on vehicle weight and distance traveled.
 
 This data is used in the fct_operational_vehicles_company_1_carbon_emission model. Please refer to its documentation for more details.
 {% enddocs %}
 
 {% docs stg_operational_data__operational_vehicles_company_2_doc %}
+**Important**: The documentation is for the sample data provided in this package. If you are using your own data, the documentation may not match what you have provided.
+
 This data is artificially generated and contains details on operational trips such as deliveries and transportation of goods. Unlike stg_operational_data__operational_vehicles_company_1, this model focuses solely on distance traveled.
 
 This data is used in the fct_operational_data__operational_vehicles_company_2_carbon_emission model. Please refer to its documentation for more details.
 {% enddocs %}
 
 {% docs stg_operational_data__work_from_home_electricity_usage_doc %}
+**Important**: The documentation is for the sample data provided in this package. If you are using your own data, the documentation may not match what you have provided.
+
 This data is artificially generated and contains estimated electricity usage by employees who work from home.
 
 This is currently used in fct_work_from_home_carbon_emission. Please refer to its documentation for more details.
 {% enddocs %}
 
 {% docs stg_operational_data__factory_machinery_usage_doc %}
+**Important**: The documentation is for the sample data provided in this package. If you are using your own data, the documentation may not match what you have provided.
+
 This data is artificially generated and contains details on daily fuel consumption of factory machinery.
 
 This data is used in the fct_factory_machinery_usage_carbon_emission model. Please refer to its documentation for more details.
 {% enddocs %}
 
 {% docs stg_operational_data__factory_machinery_doc %}
+**Important**: The documentation is for the sample data provided in this package. If you are using your own data, the documentation may not match what you have provided.
+
 This data is artificially generated and contains details on machinery used by our fake company. It is essentially a normalised version of stg_operational_data__factory_machinery_usage.
 
 This data is used in the fct_factory_machinery_carbon_emission model. Please refer to its documentation for more details.
 {% enddocs %}
 
 {% docs stg_operational_data__employee_work_from_home_days_doc %}
+**Important**: The documentation is for the sample data provided in this package. If you are using your own data, the documentation may not match what you have provided.
+
 This data is artificially generated and contains information on how many days a week employees spend working from home.
 
 This is currently used in fct_work_from_home_carbon_emission. Please refer to its documentation for more details.
