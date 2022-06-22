@@ -10,10 +10,26 @@ This model maps British post codes to carbon intensity regions (Please refer to 
 
 This model holds electricity demand factors based on [Ofgem's Electricity demand profiles](https://www.google.com/search?q=ofgem+demand+file&ei=v2h6Yp6uG9K78gKXpb_ACw&ved=0ahUKEwjeic2GhdX3AhXSnVwKHZfSD7gQ4dUDCA4&uact=5&oq=ofgem+demand+file&gs_lcp=Cgdnd3Mtd2l6EAMyBQghEKABOgcIABBHELADSgQIQRgASgQIRhgAUPMDWPMDYPsFaAJwAXgAgAFniAFnkgEDMC4xmAEAoAEByAEIwAEB&sclient=gws-wiz#:~:text=Electricity%20demand%20profiles,docs%20%E2%80%BA%202012/06). The purpose of this is to reflect that electricity demand fluctuates throughout the day.
 
-The factors are the same across regions and building types, and are calculated in the following way:
-1. Hourly factors for commercial offices in the Input data sheet are averaged across seasons.
-2. The above averages are summed.
+The factors are the same across regions, and are calculated in the following way:
+1. Hourly factors in the Input data sheet are grouped by premise type and day type (weekend or week day), and averaged across seasons.
+2. The above averages are grouped by premise type and day type, and summed.
 3. The averaged factors from step 1 are presented as proportions from the step 2 sum.
+
+These factors may be modified in the future to reflect:
+- Any significant changes in consumer demand
+- Variations between regions
+- Variations between premise types
+- Anything else that may reasonably improve emission estimates
+
+Data practitioners will be notified of such changes and a historic record of the factors may be created.
+{% enddocs %}
+
+{% docs stg_additional_modelling_resources__daily_usage_factors_doc %}
+This model holds electricity demand factors based on [Ofgem's Electricity demand profiles](https://www.google.com/search?q=ofgem+demand+file&ei=v2h6Yp6uG9K78gKXpb_ACw&ved=0ahUKEwjeic2GhdX3AhXSnVwKHZfSD7gQ4dUDCA4&uact=5&oq=ofgem+demand+file&gs_lcp=Cgdnd3Mtd2l6EAMyBQghEKABOgcIABBHELADSgQIQRgASgQIRhgAUPMDWPMDYPsFaAJwAXgAgAFniAFnkgEDMC4xmAEAoAEByAEIwAEB&sclient=gws-wiz#:~:text=Electricity%20demand%20profiles,docs%20%E2%80%BA%202012/06). The purpose of this is to reflect that electricity usage can be different on weekends and weekdays depending on the business premise.
+
+The factors are the same across regions and are calculated in the following way:
+1. Hourly factors per premise type in the Input data sheet are averaged across seasons.
+2. The above averages are summed.
 
 These factors may be modified in the future to reflect:
 - Any significant changes in consumer demand
@@ -102,72 +118,104 @@ Please refer to the SOURCE column for details on where the data comes from.
 {% enddocs %}
 
 {% docs stg_operational_data__company_business_travels_doc %}
+**Important**: The documentation is for the sample data provided in this package. If you are using your own data, the documentation may not match what you have provided.
+
 This data is artificially generated to simulate records of business travels.
 
 It is used in the fct_business_travels_carbon_emission model. Please refer to its documentation for more details.
 {% enddocs %}
 
 {% docs stg_operational_data__company_daily_electricity_usage_doc %}
+**Important**: The documentation is for the sample data provided in this package. If you are using your own data, the documentation may not match what you have provided.
+
 This data is artificially generated to simulate daily records of electricity usage in kWh across business premises. It contains, among other things, total power usage and usage per square foot.
 
 This is currently not used anywhere.
 {% enddocs %}
 
+{% docs stg_operational_data__company_invoiced_electricity_usage_doc %}
+**Important**: The documentation is for the sample data provided in this package. If you are using your own data, the documentation may not match what you have provided.
+
+
+This data is artificially generated to simulate invoiced records of electricity usage in kWh across business premises. Unlike other sample data, this one covers 2021 as well so that more quarters are present. The data for 2022 is based on company_daily_electricity_usage.
+
+{% enddocs %}
+
 {% docs stg_operational_data__company_locations_doc %}
+**Important**: The documentation is for the sample data provided in this package. If you are using your own data, the documentation may not match what you have provided.
+
 This data is artificially generated and contains information on business premises. It is essentially a normalised version of stg_operational_data__company_daily_electricity_usage.
 
-This is currently used in the fct_daily_electricity_usage_carbon_emission model.
+This is currently used in the fct_estimated_electricity_usage_carbon_emission model.
 {% enddocs %}
 
 {% docs stg_operational_data__employee_business_expenses_doc %}
+**Important**: The documentation is for the sample data provided in this package. If you are using your own data, the documentation may not match what you have provided.
+
 This data is artificially generated to simulate a list of employees' daily business expenses. Currently it only consists of two types of expenses: food and fuel. Only the latter is used for carbon emissions estimation.
 
 This data is used in the fct_employee_business_cars_carbon_emission model. Please refer to its documentation for more details.
 {% enddocs %}
 
 {% docs stg_operational_data__employee_business_vehicles_doc %}
+**Important**: The documentation is for the sample data provided in this package. If you are using your own data, the documentation may not match what you have provided.
+
 This data is artificially generated to simulate a list of company vehicles.
 
 This is currently not used anywhere.
 {% enddocs %}
 
 {% docs stg_operational_data__employee_monthly_mileage_doc %}
+**Important**: The documentation is for the sample data provided in this package. If you are using your own data, the documentation may not match what you have provided.
+
 This data is artificially generated and contains employees' monthly mileage.
 
 This data is used in the fct_business_cars_carbon_emission model. Please refer to its documentation for more details.
 {% enddocs %}
 
 {% docs stg_operational_data__operational_vehicles_company_1_doc %}
+**Important**: The documentation is for the sample data provided in this package. If you are using your own data, the documentation may not match what you have provided.
+
 This data is artificially generated and contains details on operational trips such as deliveries and transportation of goods. Most importantly, it contains data on vehicle weight and distance traveled.
 
 This data is used in the fct_operational_vehicles_company_1_carbon_emission model. Please refer to its documentation for more details.
 {% enddocs %}
 
 {% docs stg_operational_data__operational_vehicles_company_2_doc %}
+**Important**: The documentation is for the sample data provided in this package. If you are using your own data, the documentation may not match what you have provided.
+
 This data is artificially generated and contains details on operational trips such as deliveries and transportation of goods. Unlike stg_operational_data__operational_vehicles_company_1, this model focuses solely on distance traveled.
 
 This data is used in the fct_operational_data__operational_vehicles_company_2_carbon_emission model. Please refer to its documentation for more details.
 {% enddocs %}
 
 {% docs stg_operational_data__work_from_home_electricity_usage_doc %}
+**Important**: The documentation is for the sample data provided in this package. If you are using your own data, the documentation may not match what you have provided.
+
 This data is artificially generated and contains estimated electricity usage by employees who work from home.
 
 This is currently used in fct_work_from_home_carbon_emission. Please refer to its documentation for more details.
 {% enddocs %}
 
 {% docs stg_operational_data__factory_machinery_usage_doc %}
+**Important**: The documentation is for the sample data provided in this package. If you are using your own data, the documentation may not match what you have provided.
+
 This data is artificially generated and contains details on daily fuel consumption of factory machinery.
 
 This data is used in the fct_factory_machinery_usage_carbon_emission model. Please refer to its documentation for more details.
 {% enddocs %}
 
 {% docs stg_operational_data__factory_machinery_doc %}
+**Important**: The documentation is for the sample data provided in this package. If you are using your own data, the documentation may not match what you have provided.
+
 This data is artificially generated and contains details on machinery used by our fake company. It is essentially a normalised version of stg_operational_data__factory_machinery_usage.
 
 This data is used in the fct_factory_machinery_carbon_emission model. Please refer to its documentation for more details.
 {% enddocs %}
 
 {% docs stg_operational_data__employee_work_from_home_days_doc %}
+**Important**: The documentation is for the sample data provided in this package. If you are using your own data, the documentation may not match what you have provided.
+
 This data is artificially generated and contains information on how many days a week employees spend working from home.
 
 This is currently used in fct_work_from_home_carbon_emission. Please refer to its documentation for more details.

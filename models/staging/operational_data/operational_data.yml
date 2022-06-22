@@ -60,6 +60,40 @@ models:
         description: Total electricity usage for the day in kWh.
       - name: kwh_usage_per_sq_ft
         description: Electricity usage for the day in kWh per square foot.
+  - name: stg_operational_data__company_invoiced_electricity_usage
+    description: '{{ doc("stg_operational_data__company_invoiced_electricity_usage_doc") }}'
+    columns:
+      - name: sk_company_invoiced_electricity_usage
+        description: Unique identifier.
+        tests:
+          - not_null
+          - unique
+      - name: period
+        description: Identifies what period the data captures.
+      - name: period_start
+        description: The first day included in the period.
+      - name: period_end
+        description: The last day included in the period.
+      - name: location
+        description: Type of business premise.
+      - name: location_id
+        description: Name of business premise.
+      - name: location_post_code
+        description: Post code of business premise.
+      - name: abbreviated_post_code
+        description: First part of the post code.
+        tests:
+          - not_null
+          - relationships:
+                to: ref('stg_additional_modelling_resources__carbon_intensity_regions_mapped')
+                field: post_code
+      - name: location_latitude
+        description: Geographic latitude of business premise.
+      - name: location_longitude
+        description: Geographic longitude of business premise.
+      - name: kwh_usage
+        description: Total electricity usage for the period in kWh.
+
 
   - name: stg_operational_data__employee_business_expenses
     description: '{{ doc("stg_operational_data__employee_business_expenses_doc") }}'
@@ -340,7 +374,7 @@ models:
       - name: location_post_code
         description: Post code of the location.
       - name: abbreviated_post_code
-        description: First part of the post code. 
+        description: First part of the post code.
         tests:
           - not_null
           - relationships:

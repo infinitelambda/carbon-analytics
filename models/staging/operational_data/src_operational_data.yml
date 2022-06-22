@@ -6,6 +6,7 @@ sources:
     schema: sample_business_data
     tables:
       - name: company_daily_electricity_usage
+      - name: company_invoiced_electricity_usage
       - name: employee_business_expenses
       - name: employee_business_vehicles
       - name: employee_monthly_mileage

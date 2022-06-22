@@ -7,5 +7,6 @@ sources:
     tables:
       - name: carbon_intensity_regions_mapped
       - name: hourly_usage_factors
+      - name: daily_usage_factors
       - name: us_commercial_buildings_demand
       - name: machinery_consumption
