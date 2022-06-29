@@ -25,7 +25,7 @@ You can access the full documentation by running `dbt docs generate` and then `d
 | fct_work_from_home_carbon_emission                   | Estimated emissions from WFH electricity usage, weekly |
 
 ## Getting Started
-To access the emissions dataset, go to Susan's Snowflake [data marketplace listing](insert-marketplace-link) and click 'Get Data'. A set of sample operational data is included, which will allow you to build sample metrics with this package if you're not yet ready to use your own data.
+Request the supplementary dataset from nina@infinitelambda.com. A set of sample operational data is included, which will allow you to build sample metrics with this package if you're not yet ready to use your own data.
 
 Once the shared database is available in your account, please ensure that the Snowflake role you are using to run dbt has access to read from that database.
 
@@ -60,7 +60,6 @@ Contributions to this package are welcome! Please create issues or open PRs agai
 
 ## Resources:
 - Join our [Slack community](https://join.slack.com/t/sus-an/shared_invite/zt-19higwvs2-8PqLnejTAHY8Gf0GQmVpww) for support, feedback, feature requests and discussions
-- Get emissions factors data from our [Snowflake Data Marketplace listing](insert-marketplace-link)
 - Check out the [Infinite Lambda website](https://infinitelambda.com/)
 - Learn more about dbt [in the dbt docs](https://docs.getdbt.com/docs/introduction)
 - Join the [dbt Slack](http://slack.getdbt.com/)
