@@ -14,8 +14,8 @@ You can access the full documentation by running `dbt docs generate` and then `d
 | ---------------------------------------------------- | -------------------------------------------------------- |
 | fct_business_cars_carbon_emission                    | Estimated emissions per vehicle, daily |
 | fct_business_travels_carbon_emission                 | Estimated emissions per business travel type, daily |
-| fct_estimated_electricity_usage_carbon_emission      | Estimated emissions from electricity per location, daily |
-| fct_invoiced_electricity_usage_carbon_emission       | Estimated emissions from invoiced electricity per location |
+| fct_estimated_electricity_usage_carbon_emission      | Estimated emissions from electricity per location, daily. Model is currently based on the UK data only, but data for other regions is available. |
+| fct_invoiced_electricity_usage_carbon_emission       | Estimated emissions from invoiced electricity per location. Model is currently based on the UK data only, but data for other regions is available. |
 | ft_daily_heating_carbon_emission                     | Estimated emissions from heating per location, daily |
 | fct_employee_business_cars_carbon_emission           | Estimated emissions per employee car, by date of expense |
 | fct_factory_machinery_carbon_emission                | Estimated emissions from machinery based on capacity |
