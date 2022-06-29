@@ -1,4 +1,4 @@
-dbt_susan:        
+carbon-analytics:        
   outputs:
     default:
       type: snowflake
