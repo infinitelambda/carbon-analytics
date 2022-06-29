@@ -1,10 +1,14 @@
 [![Apache License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
-#  SusAn
+#  Carbon Analytics Package
 
-SusAn is a sustainability analytics tool that works with a [free emissions dataset](insert-Snowflake-data-marketplace-link) to estimate your organisation's greenhouse gas emissions from various common business activities such as office use and transportation.
+This package helps companies analyse their carbon emissions. It works in combination with a free supplementary dataset to estimate your organisation's greenhouse gas emissions from various common business activities such as office use and transportation.
+
+The dataset is currently in private preview and can be requested by emailing nina@infinitelambda.com and providing your Snowflake account ID, including the region.
 
 ## Models
 These are the final models the package produces. There are also some staging and intermediate models not listed here.
+
+You can access the full documentation by running `dbt docs generate` and then `dbt docs serve` after following the Getting Started steps below.
 
 | **model**                                            |  **description**                                         |
 | ---------------------------------------------------- | -------------------------------------------------------- |
@@ -20,7 +24,7 @@ These are the final models the package produces. There are also some staging and
 | fct_operational_vehicles_distance_based_carbon_emission | Estimated emissions from operational vehicles' travelled distance, daily |
 | fct_work_from_home_carbon_emission                   | Estimated emissions from WFH electricity usage, weekly |
 
-## Getting started
+## Getting Started
 To access the emissions dataset, go to Susan's Snowflake [data marketplace listing](insert-marketplace-link) and click 'Get Data'. A set of sample operational data is included, which will allow you to build sample metrics with this package if you're not yet ready to use your own data.
 
 Once the shared database is available in your account, please ensure that the Snowflake role you are using to run dbt has access to read from that database.
