@@ -1,8 +1,8 @@
-name: 'sus_an'
+name: 'carbon-analytics'
 version: '1.0.0'
 config-version: 2
 
-profile: 'dbt_susan' # configuration required (your profile to connect dbt to your data warehouse)
+profile: 'carbon-analytics' # configuration required (your profile to connect dbt to your data warehouse)
 
 model-paths: ["models"]
 analysis-paths: ["analysis"]
