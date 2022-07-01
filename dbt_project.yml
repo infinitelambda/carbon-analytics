@@ -1,4 +1,4 @@
-name: 'carbon-analytics'
+name: 'carbon_analytics'
 version: '1.0.0'
 config-version: 2
 
@@ -19,7 +19,7 @@ clean-targets:
 # These settings can be overridden in the individual model files
 # using the `{{ config(...) }}` macro.
 models:
-  sus_an:
+  carbon_analytics:
       staging:
           materialized: view
       mart:
