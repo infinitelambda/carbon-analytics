@@ -14,8 +14,8 @@ You can access the full documentation by running `dbt docs generate` and then `d
 | ---------------------------------------------------- | -------------------------------------------------------- |
 | fct_business_cars_carbon_emission                    | Estimated emissions per vehicle, daily |
 | fct_business_travels_carbon_emission                 | Estimated emissions per business travel type, daily |
-| fct_estimated_electricity_usage_carbon_emission      | Estimated emissions from electricity per location, daily |
-| fct_invoiced_electricity_usage_carbon_emission       | Estimated emissions from invoiced electricity per location |
+| fct_estimated_electricity_usage_carbon_emission      | Estimated emissions from electricity per location, daily. Model is currently based on the UK data only, but data for other regions is available. |
+| fct_invoiced_electricity_usage_carbon_emission       | Estimated emissions from invoiced electricity per location. Model is currently based on the UK data only, but data for other regions is available. |
 | ft_daily_heating_carbon_emission                     | Estimated emissions from heating per location, daily |
 | fct_employee_business_cars_carbon_emission           | Estimated emissions per employee car, by date of expense |
 | fct_factory_machinery_carbon_emission                | Estimated emissions from machinery based on capacity |
@@ -29,7 +29,7 @@ Request the supplementary dataset from nina@infinitelambda.com. A set of sample 
 
 Once the shared database is available in your account, please ensure that the Snowflake role you are using to run dbt has access to read from that database.
 
-If you have any issues accessing the data, please contact us on Slack
+If you have any issues accessing the data, please contact us on [Slack](https://join.slack.com/t/sus-an/shared_invite/zt-19higwvs2-8PqLnejTAHY8Gf0GQmVpww)
 
 ### Source data location
 By default, this package will use the sample data provided in the shared dataset in Snowflake. To use your own operational data, please change the value of the following variable in the package's dbt_project.yml from `sample` to `customer`:
