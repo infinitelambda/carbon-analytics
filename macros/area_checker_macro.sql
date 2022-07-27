@@ -8,9 +8,9 @@
 {% if execute %}
 {%- set sql -%}
 SELECT DISTINCT s.AREA_TYPE
-{# -- FROM {{ ref('stg_operational_data__company_locations') }} #} b -- to replace bellow FROM stmn when stg model available
+{# -- FROM {{ ref('stg_operational_data__company_locations') }} b -- to replace bellow FROM stmn when stg model available #}
 FROM "SUSAN_DEV_SHARED_DB"."ZZ_DIMITUR_SEEDS"."BSD_COMPANY_LOCATIONS" b
-{# -- INNER JOIN {{ ref('stg_additional_modelling_resources__carbon_intensity_areas') }} s -- to replace bellow FROM stmn when stg model available
+{# -- INNER JOIN {{ ref('stg_additional_modelling_resources__carbon_intensity_areas') }} s -- to replace bellow FROM stmn when stg model available #}
 INNER JOIN "SUSAN_DEV_SHARED_DB"."ZZ_DIMITUR_SEEDS"."SEED_CARBON_INTENSITY_AREAS" s
 ON b.CARBON_INTENSITY_AREA=s.CARBON_INTENSITY_AREA
 {%- endset -%}
@@ -33,7 +33,7 @@ ON b.CARBON_INTENSITY_AREA=s.CARBON_INTENSITY_AREA
 {% if value in output %}
   {{ return(True) }}
 {% else %}
-{{ return(False) }}
+  {{ return(False) }}
 {% endif %}
 
 {% endmacro %}
