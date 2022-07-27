@@ -6,6 +6,7 @@ sources:
     schema: additional_modelling_resources
     tables:
       - name: carbon_intensity_regions_mapped
+      - name: carbon_intensity_areas
       - name: hourly_usage_factors
       - name: daily_usage_factors
       - name: us_commercial_buildings_demand
