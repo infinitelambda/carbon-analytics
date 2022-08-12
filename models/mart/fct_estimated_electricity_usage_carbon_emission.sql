@@ -60,6 +60,6 @@ SELECT
   ROUND(cd.LOCATION_SIZE_SQ_FT*(dem.ANNUAL_KWH_DEMAND/365), 2) as ESTIMATED_KWH_USAGE,
   ROUND(cd.LOCATION_SIZE_SQ_FT*(dem.ANNUAL_KWH_DEMAND/365)*"WEIGHTED_DAILY_KGCO2",3) AS TOTAL_KGCO2E
 FROM company_locations CD
-LEFT JOIN {{ ref('stg_additional_modelling_resources__us_commercial_buildings_demand') }} dem ON upper(dem.TYPE)=upper(cd.LOCATION)
+LEFT JOIN {{ ref('stg_additional_modelling_resources__us_commercial_buildings_demand') }} dem ON upper(dem.TYPE)=upper(cd.PREMISE_TYPE_FOR_JOINING)
 LEFT JOIN {{ ref('stg_additional_modelling_resources__carbon_intensity_regions_mapped') }} r ON r.POST_CODE=cd.ABBREVIATED_POST_CODE
 LEFT JOIN weighted_daily_intensity ac on ac.REGION_NAME=r.CARBON_INTENSITY_REGION and cd.PREMISE_TYPE_FOR_JOINING = ac.PREMISE_TYPE
