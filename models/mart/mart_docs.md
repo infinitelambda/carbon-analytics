@@ -6,7 +6,7 @@ Using [carbon intensity](https://carbonintensity.org.uk/) and average energy usa
 
 This model requires columns with the below names and containing the data described:
  - LOCATION_ID - A unique identifier of the premise.
- - LOCATION - Premise type as defined [here](link-to-docs-site).
+ - LOCATION_TYPE - Premise type as defined [here](link-to-docs-site).
  - LOCATION_SIZE_SQ_FT - Premise area expressed in square feet.
  - ABBREVIATED_POST_CODE - The letters in the first half of a UK post code for the premise.
  - LOCATION_LATITUDE - Geographic latitude of the premise. *** NOTE *** that this is not used in any calculations or joins, therefore null values are accepted.
@@ -26,7 +26,7 @@ The model counts the number of weekend and week days within each period. Using t
 
 This model requires columns with the below names and containing the data described:
  - LOCATION_ID - A unique identifier of the premise
- - LOCATION - Premise type as defined [here](link-to-docs-site)
+ - LOCATION_TYPE - Premise type as defined [here](link-to-docs-site)
  - LOCATION_LATITUDE - Geographic latitude of the premise. *** NOTE *** that this is not used in any calculations or joins, therefore null values are accepted.
  - LOCATION_LONGITUDE - Geographic longitude of the premise. *** NOTE *** that this is not used in any calculations or joins, therefore null values are accepted.
  - ABBREVIATED_POST_CODE - The letters in the first half of a UK post code for the premise
@@ -169,7 +169,7 @@ Using average heating demand per square foot per premise type and the carbon emi
 
 This model requires columns with the below names and containing the data described:
 - LOCATION_ID - A unique identifier of the premise
-- LOCATION - Premise type as defined [here](link-to-docs-site)
+- LOCATION_TYPE - Premise type as defined [here](link-to-docs-site)
 - LOCATION_SIZE_SQ_FT - Premise area expressed in square feet
 - LOCATION_LATITUDE - Geographic latitude of the premise. *** NOTE *** that this is not used in any calculations or joins, therefore null values are accepted.
 - LOCATION_LONGITUDE - Geographic longitude of the premise. *** NOTE *** that this is not used in any calculations or joins, therefore null values are accepted.
