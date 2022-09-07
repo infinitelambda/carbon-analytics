@@ -15,7 +15,7 @@ models:
     columns:
       - name: sk_hourly_usage_factors
         description: Unique identifier.
-      - name: premise_type
+      - name: location_type
         description: Type of premise.
       - name: is_weekday
         description: Denotes if the factor is for a weekday or not.
@@ -28,7 +28,7 @@ models:
     columns:
       - name: sk_daily_usage_factors
         description: Unique identifier.
-      - name: premise_type
+      - name: location_type
         description: Type of business premise.
       - name: weekday_factor
         description: Factor for weekday consumption.
